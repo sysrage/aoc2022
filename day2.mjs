@@ -61,7 +61,7 @@ for await (const line of rl) {
     // Part 2
     if (player === 'X') {
         // need to lose
-        const playerMove = moveMap[Object.entries(lose).filter(([key, val]) => val === oponent)[0][0]];
+        const playerMove = moveMap[Object.entries(lose).filter(([, val]) => val === oponent)[0][0]];
         score2 += points[playerMove];
     } else if (player === 'Y') {
         // need to tie
@@ -69,7 +69,7 @@ for await (const line of rl) {
         score2 += 3 + points[playerMove];
     } else {
         // need to win
-        const playerMove = moveMap[Object.entries(win).filter(([key, val]) => val === oponent)[0][0]]
+        const playerMove = moveMap[Object.entries(win).filter(([, val]) => val === oponent)[0][0]];
         score2 += 6 + points[playerMove];
     }
 }
