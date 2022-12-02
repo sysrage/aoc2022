@@ -12,7 +12,7 @@ const { readFile } = require('node:fs/promises');
         totals.push(elf.reduce((acc, curr) => acc + Number(curr), 0));
     }
 
-    const sortedTotals = totals.sort().reverse();
+    const sortedTotals = totals.sort((a, b) => b - a);
     console.log(`Part 1: ${sortedTotals[0]}`);
 
     const topThree = sortedTotals[0] + sortedTotals[1] + sortedTotals[2];
