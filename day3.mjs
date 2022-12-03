@@ -22,7 +22,7 @@ for await (const line of rl) {
     curGroup.push(line);
     if (curGroup.length === 3) {
         const badge = curGroup[0].split('').find(c => curGroup[1].includes(c) && curGroup[2].includes(c));
-        sum2 += alpha.indexOf(badge);
+        sum2 += alpha.indexOf(badge) + 1;
         curGroup = [];
     }
 }
