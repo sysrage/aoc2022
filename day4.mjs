@@ -28,6 +28,8 @@ for await (const line of rl) {
     if (elf1Array.every(id => elf2Array.includes(id)) || elf2Array.every(id => elf1Array.includes(id))) {
         count++;
     }
+
+    // Part 2
     if (elf1Array.some(id => elf2Array.includes(id)) || elf2Array.some(id => elf1Array.includes(id))) {
         count2++;
     }
