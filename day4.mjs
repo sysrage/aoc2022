@@ -6,12 +6,10 @@ console.log('AOC 2022 - Day #4');
 const fileStream = fs.createReadStream('./input/day4.txt');
 const rl = readline.createInterface({ input: fileStream });
 
-let lineNumber = 0;
 let count = 0;
 let count2 = 0;
 for await (const line of rl) {
     // Part 1
-    lineNumber++;
     const [elf1, elf2] = line.split(',');
     const [elf1Low, elf1High] = elf1.split('-');
     const [elf2Low, elf2High] = elf2.split('-');
