@@ -28,17 +28,25 @@ const stacks = [
     ['W', 'P', 'J']
 ];
 
+const stacks2 = structuredClone(stacks);
 
 for await (const line of rl) {
     if (!line.startsWith('move')) continue;
-    // Part 1
     const lineRegex = /move (\d+) from (\d+) to (\d+)/;
     const [, numToMove, src, dst] = line.match(lineRegex);
-    for (let i = 0; i < numToMove; i++) {
+
+    // Part 1
+    for (let i = 0; i < Number(numToMove); i++) {
         stacks[Number(dst) - 1].push(stacks[Number(src) - 1].pop());
     }
-}
-const top = stacks.map(s => s[s.length - 1]);
-console.log(`Part 1: ${top.join('')}`);
 
-// console.log(`Part 2: ${count2}`);
+    // Part 2
+    const pop = stacks2[Number(src) - 1].splice(0 - Number(numToMove), Number(numToMove));
+    stacks2[Number(dst) - 1].push(...pop);
+}
+
+const top1 = stacks.map(s => s[s.length - 1]);
+console.log(`Part 1: ${top1.join('')}`);
+
+const top2 = stacks2.map(s => s[s.length - 1]);
+console.log(`Part 2: ${top2.join('')}`);
